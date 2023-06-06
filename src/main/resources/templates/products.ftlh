@@ -8,7 +8,7 @@
     <h1>BUYSELL</h1><hr>
     <h4>Товары со всего Казахстана</h4>
     <form action="/" method="get">
-        Поиск по названию объявления: <input tupe="text" name="title"><br>
+        Поиск по названию объявления: <input type="text" name="title"><br>
         <input type="submit" value="Поиск"/>
     </form>
     <#list products as product>
