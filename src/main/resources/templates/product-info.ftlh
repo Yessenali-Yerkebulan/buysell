@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>BUYSELL</title>
-</head>
-<body>
-<h1>BUYSELL</h1><hr>
-<h4>Подробная информация о товаре</h4>
-<#list images as img>
-    <img src="/images/${img.id}" height="60px"/><br><br>
-</#list>
+<#import "blocks/template.ftlh" as t>
+<@t.template user>
+            <#list images as image>
+                <a href="/images/${image.id}">
+                    <img class="product" style="height: 100px" src="/images/${image.id}">
+                </a>
+            </#list>
+    <hr>
+    <p><h1 style="text-align: center">${product.title} | ${product.price} ₸</h1></p>
+    <p style="text-align: center">${product.description}</p>
+    <p style="text-align: center">Номер телефона продавца: <b>${authorProduct.phoneNumber}</b></p>
 
-<b>Название товара: </b>${product.title}<br>
-<b>Описание товара: </b>${product.description}<br>
-<b>Цена: </b>${product.price}<br>
-<b>Город: </b>${product.city}<br>
-<b>Автор: </b><a href="/user/${product.user.id}">${product.user.name}</a><br>
-<hr>
-</body>
-</html>
+    <hr>
+    <p style="text-align: center">
+        <a href="/user/${authorProduct.id}">
+            <img src="/static/images/avatar.png" alt="mdo" width="32" height="32" class="rounded-circle"> ${authorProduct.name}
+        </a>
+    </p>
+
+</@t.template>
